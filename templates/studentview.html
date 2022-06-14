@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 > STUDENT Details</h1>
+<div class="container">
+    <div class="profile">
+    <h3>Admission Number:</h3><br>
+    <p>{{students.admission_number}}</p><br>
+    <h3>Full Name:</h3><br>
+    <p>{{students.first_name}}&nbsp;{{students.last_name}}</p><br>
+    <h3>Gardian:</h3><br>
+    <p>{{students.parent_name}}
+    <h3>Address:</h3><br>
+    <p>{{students.address}}</p><br>
+    <h3>Number:</h3><br>
+    <p>{{students.number}}</p><br>
+    <h3>Department :</h3><br>
+    <p>{{students.department}}</p><br>
+    <h3>Date Of Birth</h3><br>
+    <p>{{students.DOB}}</p><br>
+    <h3>Gender</h3><br>
+    <p>{{students.gender}}</p><br>
+    <h3>Joined Date</h3><br>
+    <p>{{students.Joined_date }}</p><br>
+</div>
+<div class="move">
+    <form action="{% url 'studapp:stddel' students.id %}" method="post">
+        {% csrf_token %}
+        <input class="del" type="submit" value="Delete">
+    </form>
+    <form action="{% url 'studapp:stdupdate' students.id %}" method="post">
+        {% csrf_token %}
+        <input class="del" type="submit" value="Update">
+    </form>
+</div>
+
+</div>
+{% endblock %}

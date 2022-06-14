@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomePage</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>College Management System</h1>
+      <div class="Nav">
+        <button><a href="{% url 'studapp:home' %}">Home</a></button>
+        <button><a href="{% url 'studapp:addstd' %}">Add Student</a></button>
+      </div>
+    </div>
+    <div class="body">
+        {% block content %} 
+        {% endblock %}
+      </div>
+  </body>
+</html>
