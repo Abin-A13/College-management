@@ -39,7 +39,7 @@ def addstudents(request):
         Number = request.POST['num']
         department = request.POST.get('department')
         dob = request.POST['dob']
-        gender = request.POST.get('gender')
+        gender = request.POST['gender']
         if first_name == "":
             messages.info(request, "First Name must provide")
             return redirect('studapp:addstd')
