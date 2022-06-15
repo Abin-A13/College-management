@@ -6,6 +6,8 @@ written python (django)
 * Add, edit, delete Students
 * Department can add and view
 * filter and serach by name,department,admission_id
+* No auth system is added
+
 ## versions
 * Python 3.9.8
 * Django 4.0.5
