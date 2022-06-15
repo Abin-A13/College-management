@@ -9,6 +9,9 @@ from django.views.generic import (
 )
 
 from mainapp.models import Department
+# This are all generic views for  CRUD opertion
+# DepartmentForm is manage the field in update and create department resource
+# get_object_or_404 give the instance of model or 404
 
 class Department_Create(CreateView):
     queryset = Department.objects.all()
@@ -16,11 +19,10 @@ class Department_Create(CreateView):
     form_class = DepartmentForm
     success_url = '/'
 
-    def form_valid(self,form):
+    def form_valid(self, form):
         print(form.cleaned_data)
         return super().form_valid(form)
 
-    
 
 class Department_View(DetailView):
     queryset = Department.objects.all()
@@ -28,30 +30,32 @@ class Department_View(DetailView):
 
     def get_object(self):
         id = self.kwargs.get('id')
-        return get_object_or_404(Department,id=id)
+        return get_object_or_404(Department, id=id)
+
 
 class Department_delete(DeleteView):
     queryset = Department.objects.all()
-    template_name ='confirm_delete.html'
+    template_name = 'confirm_delete.html'
     success_url = '/'
-    
+
     def get_object(self):
         id = self.kwargs.get('id')
-        return get_object_or_404(Department,id=id)
-    
+        return get_object_or_404(Department, id=id)
+
+
 class Department_update(UpdateView):
     queryset = Department.objects.all()
     template_name = 'Department_form.html'
     form_class = DepartmentForm
 
-    def form_valid(self,form):
+    def form_valid(self, form):
         print(form.cleaned_data)
         return super().form_valid(form)
 
     def get_object(self):
         id = self.kwargs.get('id')
-        return get_object_or_404(Department,id=id)
+        return get_object_or_404(Department, id=id)
 
     def get_success_url(self):
         id = self.kwargs.get('id')
-        return reverse('deptapp:departView',kwargs={'id':id})
+        return reverse('deptapp:departView', kwargs={'id': id})

@@ -1,10 +1,12 @@
 from mainapp import views
-from .views import Student_view,Student_delete,Student_update
+from .views import Student_view, Student_delete, Student_update
 from django.urls import path
 
+# namespace for this app
 app_name = "studapp"
 
 urlpatterns = [
+    # function based views
     path('', views.home, name="home"),
     path('addstudents/', views.addstudents, name="addstd"),
 
