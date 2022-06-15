@@ -1,12 +1,15 @@
 # College-management
 this is a Simple Student Management system.
-written python (django) 
+written python (django) ,html,css
 
 ## features of app
 * Add, edit, delete Students
 * Department can add and view
 * filter and serach by name,department,admission_id
 * No auth system is added
+
+## DataBase
+* sqllite(ORM)
 
 ## versions
 * Python 3.9.8
