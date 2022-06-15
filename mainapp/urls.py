@@ -9,7 +9,7 @@ urlpatterns = [
     path('addstudents/', views.addstudents, name="addstd"),
 
     # class based views
-    path('studentsview/<int:id>', Student_view.as_view(), name="stdview"),
-    path('<int:pk>/delete', Student_delete.as_view(), name="stddel"),
-    path('<int:pk>/update', Student_update.as_view(), name="stdupdate"),
+    path('<int:id>', Student_view.as_view(), name="stdview"),
+    path('<int:id>/delete/', Student_delete.as_view(), name="stddel"),
+    path('<int:id>/update/', Student_update.as_view(), name="stdupd"),
 ]

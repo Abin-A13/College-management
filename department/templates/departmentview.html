@@ -9,13 +9,11 @@
     <p>{{department.hod_name }}</p><br>
 </div>
 <div class="move">
-    <form action="{% url 'deptapp:departdel' department.id %}" method="post">
-        {% csrf_token %}
+    <form action="{% url 'deptapp:departdel' department.id %}" method="GET">
         <input class="del" type="submit" value="Delete">
     </form>
-    <form action="{% url 'deptapp:departupdate' department.id %}" method="post">
-        {% csrf_token %}
-        <input class="del" type="submit" value="Update">
+    <form action="{% url 'deptapp:departupdate' department.id %}" method="GET">
+        <input class="upd" type="submit" value="Update">
     </form>
 </div>
 

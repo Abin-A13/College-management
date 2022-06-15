@@ -23,13 +23,11 @@
     <p>{{students.Joined_date }}</p><br>
 </div>
 <div class="move">
-    <form action="{% url 'studapp:stddel' students.id %}" method="post">
-        {% csrf_token %}
+    <form action="{% url 'studapp:stddel' students.id %}" method="GET">
         <input class="del" type="submit" value="Delete">
     </form>
-    <form action="{% url 'studapp:stdupdate' students.id %}" method="post">
-        {% csrf_token %}
-        <input class="del" type="submit" value="Update">
+    <form action="{% url 'studapp:stdupd' students.id %}" method="GET">
+        <input class="upd" type="submit" value="Update">
     </form>
 </div>
 

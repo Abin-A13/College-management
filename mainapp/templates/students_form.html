@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action=" " method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <div id="form-django">
+  <input type="submit"  value="Update">
+</div>
+</form>
+
+{% endblock %}

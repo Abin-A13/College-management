@@ -126,8 +126,9 @@ form input[type=submit]{
     cursor: pointer;
     color: #fff;
 }
-form ul li{
-    display: none;
+#form-django{
+    align-items: center;
+    margin-left: 320px;
 }
 /* profile */
 .profile{
@@ -141,6 +142,17 @@ form ul li{
 }
 .move{
    margin: 100px;
+   display: flex;
+}
+.move input{
+    display: inline;
+}
+.move .del{
+    background-color: rgb(255, 67, 67);
+}
+.move .upd{
+    background-color: rgb(32, 250, 61);
+    color: rgb(39, 33, 33);
 }
 
 /* form as */

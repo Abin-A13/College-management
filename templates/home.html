@@ -1,5 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
+<h1 > Departments</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Details</th>
+  </tr>
+
+  {% for dep in department %}
+  <tr>
+    <td>{{dep.name}}</a></td>
+    <td><a href="{% url 'deptapp:departView' dep.id %}" >View</a></td>
+  </tr>
+  {% endfor %}
+</table>
 <h1 > List of students </h1>
 <table>
   <tr>
@@ -21,19 +35,6 @@
   </tr>
   {% endfor %}
 </table>
-<h1 > Departments</h1>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>HOD</th>
-  </tr>
 
-  {% for dep in department %}
-  <tr>
-    <td>{{dep.name}}</a></td>
-    <td><a href="{% url 'deptapp:departView' dep.id %}" >View</a></td>
-  </tr>
-  {% endfor %}
-</table>
 
 {% endblock %}

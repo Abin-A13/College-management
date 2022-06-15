@@ -1,4 +1,4 @@
-from pyexpat import model
+from django.urls import reverse
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib import  messages
 from .models import Students,Department
@@ -7,7 +7,7 @@ from django.views.generic import (
     DeleteView,
     UpdateView
 )
-
+from .forms import StudentForm
 #  this function is for display all department and 
 def home(request):
     dep = Department.objects.all()
@@ -48,23 +48,39 @@ def addstudents(request):
 
 class Student_view(DetailView):
     queryset = Students.objects.all()
-    template_name ='studentview.html'
+    template_name = 'students_detail.html'
     
     def get_object(self):
         id = self.kwargs.get('id')
         return get_object_or_404(Students,id=id)
 
 class Student_delete(DeleteView):
-    model= Students
-    template_name ='delete.html'
-    success_url = '/'
+    queryset = Students.objects.all()
+    template_name ='confirm_delete.html'
     
     def get_object(self):
-        id = self.kwargs.get('pk')
+        id = self.kwargs.get('id')
+        return get_object_or_404(Students,id=id)
+
+    def get_success_url(self):
+        return reverse('studapp:home')
+
+
+class Student_update(UpdateView):
+    queryset = Students.objects.all()
+    template_name = 'students_form.html'
+    form_class   =  StudentForm
+
+    def form_valid(self,form):
+        print(form.cleaned_data)
+        return super().form_valid(form)
+
+    def get_object(self):
+        id = self.kwargs.get('id')
         return get_object_or_404(Students,id=id)
     
-class Student_update(UpdateView):
-    model = Students
-    template_name = 'students_update_Form.html'
-    success_url = '/'
-    fields = ['first_name','last_name','number','department']
+    def get_success_url(self):
+        id = self.kwargs.get('id')
+        return reverse('studapp:stdview',kwargs={'id':id})
+
+    
