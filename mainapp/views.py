@@ -8,11 +8,14 @@ from django.views.generic import (
     UpdateView
 )
 from .forms import StudentForm
+from .filters import StudentFilter
 #  this function is for display all department and 
 def home(request):
     dep = Department.objects.all()
     std = Students.objects.all()
-    context = {'department' : dep,'students' :std}
+    myfilter = StudentFilter(request.GET,queryset=std)
+    std = myfilter.qs
+    context = {'department' : dep,'students' :std,'filter':myfilter}
     return render(request,'home.html',context)
 
 

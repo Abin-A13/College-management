@@ -4,4 +4,4 @@ from mainapp.models import Department
 class DepartmentForm(forms.ModelForm):
     class Meta:
         model = Department
-        fields = ['name']
+        fields = ['name','hod']

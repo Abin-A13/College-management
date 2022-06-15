@@ -8,14 +8,14 @@ from django.views.generic import (
     CreateView
 )
 
-from mainapp.models import Department,Hod
+from mainapp.models import Department
 
 class Department_Create(CreateView):
     queryset = Department.objects.all()
     template_name = 'Department_form.html'
     form_class = DepartmentForm
     success_url = '/'
-    
+
     def form_valid(self,form):
         print(form.cleaned_data)
         return super().form_valid(form)

@@ -5,8 +5,9 @@
     <div class="profile">
         <h3>Name of Department</h3><br>
     <p>{{department.name}}</p><br>
-    
-    <p>{{department.hod_name }}</p><br>
+    <h3>Head of the Department</h3><br>
+    <p>{{department.hod }}</p><br>
+    <p>{{department.students }}</p><br>
 </div>
 <div class="move">
     <form action="{% url 'deptapp:departdel' department.id %}" method="GET">
