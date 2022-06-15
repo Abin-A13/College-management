@@ -22,12 +22,7 @@ python-m venv name
 clone this project
 
 ```
-git clone
-```
-enter the project
-
-```
-cd
+git clone https://github.com/Abin-A13/College-management.git
 ```
 install requirments for project
 ```
