@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 > Departments</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Details</th>
+  </tr>
+
+  {% for dep in department %}
+  <tr>
+    <td>{{dep.name}}</a></td>
+    <td><a href="{% url 'deptapp:departView' dep.id %}" >View</a></td>
+  </tr>
+  {% endfor %}
+</table>
+<div class="filter">
+    <form action="" method="get">
+      {{filter.form}}
+      <input type="submit" value="Search" >
+    </form>
+</div>
+<h1 > List of students </h1>
+<table>
+  <tr>
+    <th>Addmission id</th>
+    <th>Name</th>
+    <th>Date joined</th>
+    <th>Number</th>
+    <th>Details</th>
+  </tr>
+
+  {% for std in students %}
+  <tr>
+    <td>{{std.admission_number}}</td>
+    <td>{{std.first_name}}</td>
+    <td>{{std.Joined_date}}</td>
+    <td>{{std.number}}</td>
+    <td><a href="{% url 'studapp:stdview' std.id %}" >View</a></td>
+
+  </tr>
+  {% endfor %}
+</table>
+
+
+{% endblock %}

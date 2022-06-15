@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 > Department Details</h1>
+<div class="container">
+    <div class="profile">
+        <h3>Name of Department</h3><br>
+    <p>{{department.name}}</p><br>
+    <h3>Head of the Department</h3><br>
+    <p>{{department.hod }}</p><br>
+    <p>{{department.students }}</p><br>
+</div>
+<div class="move">
+    <form action="{% url 'deptapp:departdel' department.id %}" method="GET">
+        <input class="del" type="submit" value="Delete">
+    </form>
+    <form action="{% url 'deptapp:departupdate' department.id %}" method="GET">
+        <input class="upd" type="submit" value="Update">
+    </form>
+</div>
+
+</div>
+{% endblock %}
